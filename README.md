@@ -29,3 +29,14 @@ converter.convert_to_onnx("output_model.onnx")
 
 ## Contact
 Milad Nasiri
+
+## Verification
+To verify your converted model:
+```python
+python src/final_verify.py
+```
+This will perform a comprehensive check of the ONNX model:
+- Structure validation
+- Inference testing
+- PyTorch output comparison
+- Size and performance analysis
