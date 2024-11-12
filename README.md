@@ -1,6 +1,7 @@
 # Whisper ONNX Converter
 
 Convert OpenAI's Whisper speech recognition models to ONNX format for deployment on Magic Leap 2 and other platforms.
+![Description of the image](https://github.com/miladnasiri/Whisper-ONNX-converter/blob/df81511c8897211d4760eac66da5223043378a00/Final%20Verification%20Check.png)
 
 ## Features
 - Convert Whisper models to ONNX format
