@@ -44,3 +44,16 @@ This will perform a comprehensive check of the ONNX model:
 - Inference testing
 - PyTorch output comparison
 - Size and performance analysis
+
+## Tokenization and Character Map
+For Unity integration, you'll need the character map:
+
+```python
+from src.tokenizer_utils import WhisperTokenizer
+
+# Generate character map
+tokenizer = WhisperTokenizer("tiny")
+tokenizer.save_char_map("whisper_char_map.json")
+```
+
+This generates the mapping needed to decode model output in Unity.
