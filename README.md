@@ -1,15 +1,11 @@
 # Whisper ONNX Converter
 
-# Whisper ONNX Converter
-
 Convert OpenAI's Whisper speech recognition models to ONNX format for deployment on Magic Leap 2 and other platforms.
-
-![Final Verification Check](https://github.com/miladnasiri/Whisper-ONNX-converter/blob/df9ea2ad57bcd3e88fdd07fbf1145d55b8d2041e/Final%20Verification%20Check.png)
 
 ## Features
 - Convert Whisper models to ONNX format
 - Support for all Whisper model sizes
-- Verification tools to ensure conversion accuracy
+- Character map generation for token decoding
 - Optimized for real-time inference
 - Unity/Magic Leap 2 deployment support
 
@@ -17,43 +13,41 @@ Convert OpenAI's Whisper speech recognition models to ONNX format for deployment
 ```bash
 git clone git@github.com:miladnasiri/Whisper-ONNX-conver.git
 cd Whisper-ONNX-conver
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Quick Start
+## Usage
+
+### Model Conversion
 ```python
 from src.converter import WhisperONNXConverter
-from src.verifier import WhisperONNXVerifier
-
-# Initialize converter
-converter = WhisperONNXConverter(model_type="tiny")
-converter.load_model("path/to/your/model.pt")
-converter.convert_to_onnx("output_model.onnx")
+converter = WhisperONNXConverter("tiny")
+converter.load_model()
+converter.convert_to_onnx("whisper_tiny.onnx")
 ```
 
-## Contact
-[Milad Nasiri](https://www.linkedin.com/in/miladnasiri/)
-
-## Verification
-To verify your converted model:
-```python
-python src/final_verify.py
-```
-This will perform a comprehensive check of the ONNX model:
-- Structure validation
-- Inference testing
-- PyTorch output comparison
-- Size and performance analysis
-
-## Tokenization and Character Map
-For Unity integration, you'll need the character map:
-
+### Character Map Generation
 ```python
 from src.tokenizer_utils import WhisperTokenizer
-
-# Generate character map
 tokenizer = WhisperTokenizer("tiny")
 tokenizer.save_char_map("whisper_char_map.json")
 ```
 
-This generates the mapping needed to decode model output in Unity.
+### Verification
+```python
+python test_existing_model.py
+python check_char_map.py
+```
+
+## Model Details
+- Input shape: `[batch_size, 80, n_frames]`
+- Output shape: `[1, 1500, 384]`
+- Character map size: 50,363 tokens
+
+## Documentation
+- [Character Map Documentation](docs/CHARACTER_MAP.md)
+
+## Contact
+Milad Nasiri

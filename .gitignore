@@ -20,16 +20,19 @@ wheels/
 .installed.cfg
 *.egg
 
-# Models
-*.pt
-*.onnx
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
 # Virtual Environment
 venv/
 ENV/
 
-# OS specific
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Model files
+*.pt
+*.onnx
+
+# Misc
 .DS_Store
