@@ -32,7 +32,7 @@ converter.convert_to_onnx("output_model.onnx")
 ```
 
 ## Contact
-Milad Nasiri
+[Milad Nasiri](https://www.linkedin.com/in/miladnasiri/)
 
 ## Verification
 To verify your converted model:
